@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
+  <remote fetch="git://github.com/jeanlego" name="gh" revision="main"/>
+  <remote fetch="git://github.com/openembedded" name="openembedded"/>
+  <default sync-j="8" sync-c="true" revision="kirkstone"/>
+
+  <project name="yocto-zen-conf" path="conf" remote="gh">
+    <copyfile dest="shell.nix" src="shell.nix"/>
+    <linkfile dest="build-v3000/conf/bblayers.conf" src="bblayers.conf"/>
+    <linkfile dest="build-v3000/conf/local.conf" src="local.conf"/>
+  </project>
+  <project name="poky" path="sources/core" remote="yocto" />
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="openembedded"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto"/>
+  <project name="meta-amd" path="sources/meta-amd" remote="yocto"/>
+  <project name="meta-dpdk" path="sources/meta-dpdk" remote="yocto"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto"/>
+</manifest>
